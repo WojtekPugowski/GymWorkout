@@ -4,8 +4,8 @@ namespace GymWorkout.Domain.Entities
 {
     public class Participant : DomainEntity
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string? Surname { get; set; }
         public int Weight { get; set; }
         public int Growth { get; set; }
         public Coach? Coach { get; set; }
