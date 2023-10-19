@@ -8,7 +8,6 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<Participant> builder)
         {
-            throw new NotImplementedException();
         }
     }
 }

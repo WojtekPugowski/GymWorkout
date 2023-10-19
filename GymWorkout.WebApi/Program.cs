@@ -1,14 +1,20 @@
+using GymWorkout.Infrastructure.Persistance;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 const string APP_NAME = "GymWorkout";
 
+if (builder.Environment.IsDevelopment()) 
+{
+    builder.Configuration.AddJsonFile("appsettings.Development.local.json", optional: false, reloadOnChange: false);
+}
+
 // Add services to the container.
 var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
-    .Enrich.WithProperty("ApplicationName",APP_NAME)
-    .Enrich.WithProperty("MachineName",Environment.MachineName)
+    .Enrich.WithProperty("ApplicationName", APP_NAME)
+    .Enrich.WithProperty("MachineName", Environment.MachineName)
     .CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
