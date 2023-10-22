@@ -1,7 +1,6 @@
 ﻿using GymWorkout.Application.Interfaces;
 using GymWorkout.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace GymWorkout.Infrastructure.Persistance
 {
@@ -15,6 +14,7 @@ namespace GymWorkout.Infrastructure.Persistance
         public DbSet<Participant> Participats { get; set; }
         public DbSet<TrainingDay> TrainingDays { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<ExerciseVariables> ExerciseVariables { get; set; }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
@@ -41,6 +41,16 @@ namespace GymWorkout.Infrastructure.Persistance
                 .HasMany(t => t.Exercises)
                 .WithOne(e => e.TrainingDay)
                 .HasForeignKey(e => e.TrainingDayId);
+
+            modelBuilder.Entity<Exercise>()
+                .HasOne(e => e.ExercisePlanned)
+                .WithOne()
+                .HasForeignKey<Exercise>(ev => ev.ExercisePlannedId);
+
+            modelBuilder.Entity<Exercise>()
+                .HasOne(e => e.ExerciseDone)
+                .WithOne()
+                .HasForeignKey<Exercise>(ev => ev.ExerciseDoneId);
         }
     }
 }
