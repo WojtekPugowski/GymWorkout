@@ -13,7 +13,10 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<ExerciseVariables> builder)
         {
-            throw new NotImplementedException();
+            //builder.HasKey(b => b.Id);
+            //builder.Property(b => b.NumberOfSeries);
+            //builder.Property(b => b.WeightLifted);
+            //builder.Property(b => b.Duration);
         }
     }
 }

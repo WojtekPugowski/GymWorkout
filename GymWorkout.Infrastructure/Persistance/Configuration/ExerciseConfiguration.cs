@@ -13,6 +13,8 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<Exercise> builder)
         {
+            //builder.HasKey(b => b.Id);
+            //builder.Property(b => b.Title);
         }
     }
 }
