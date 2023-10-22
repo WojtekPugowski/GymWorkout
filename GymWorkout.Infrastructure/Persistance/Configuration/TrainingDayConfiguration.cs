@@ -1,11 +1,6 @@
 ﻿using GymWorkout.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GymWorkout.Infrastructure.Persistance.Configuration
 {
@@ -13,7 +8,14 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<TrainingDay> builder)
         {
-            //dodać konfigurację: "kluczy obcych" i relacje, itd.
+            builder.ToTable(nameof(TrainingDay));
+            builder.HasKey(t => t.Id);
+            builder.Property(t => t.DateAndTime);
+
+            builder.HasMany(t => t.Exercises)
+                    .WithOne(t => t.TrainingDay)
+                    .HasForeignKey(t => t.TrainingDayId)
+                    .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

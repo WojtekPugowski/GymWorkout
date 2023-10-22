@@ -1,5 +1,6 @@
 ﻿using GymWorkout.Application.Interfaces;
 using GymWorkout.Domain.Entities;
+using GymWorkout.Infrastructure.Persistance.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace GymWorkout.Infrastructure.Persistance
@@ -27,30 +28,36 @@ namespace GymWorkout.Infrastructure.Persistance
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Coach>()
-                .HasMany(c => c.Participants)
-                .WithOne(p => p.Coach)
-                .HasForeignKey(p => p.CoachId);
+            modelBuilder.ApplyConfiguration(new CoachConfiguration());
+            //modelBuilder.Entity<Coach>()
+            //    .HasMany(c => c.Participants)
+            //    .WithOne(p => p.Coach)
+            //    .HasForeignKey(p => p.CoachId);
 
-            modelBuilder.Entity<Participant>()
-                .HasMany(p => p.MyTreningDays)
-                .WithOne(m => m.Participant)
-                .HasForeignKey(m => m.ParticipantId);
+            modelBuilder.ApplyConfiguration(new ParticipantConfiguration());            
+            //modelBuilder.Entity<Participant>()
+            //    .HasMany(p => p.MyTreningDays)
+            //    .WithOne(m => m.Participant)
+            //    .HasForeignKey(m => m.ParticipantId);
 
-            modelBuilder.Entity<TrainingDay>()
-                .HasMany(t => t.Exercises)
-                .WithOne(e => e.TrainingDay)
-                .HasForeignKey(e => e.TrainingDayId);
+            modelBuilder.ApplyConfiguration(new TrainingDayConfiguration());
+            //modelBuilder.Entity<TrainingDay>()
+            //    .HasMany(t => t.Exercises)
+            //    .WithOne(e => e.TrainingDay)
+            //    .HasForeignKey(e => e.TrainingDayId);
 
-            modelBuilder.Entity<Exercise>()
-                .HasOne(e => e.ExercisePlanned)
-                .WithOne()
-                .HasForeignKey<Exercise>(ev => ev.ExercisePlannedId);
+            modelBuilder.ApplyConfiguration(new ExerciseVariablesConfiguration());
 
-            modelBuilder.Entity<Exercise>()
-                .HasOne(e => e.ExerciseDone)
-                .WithOne()
-                .HasForeignKey<Exercise>(ev => ev.ExerciseDoneId);
+            modelBuilder.ApplyConfiguration(new ExerciseConfiguration());
+            //modelBuilder.Entity<Exercise>()
+            //    .HasOne(e => e.ExercisePlanned)
+            //    .WithOne()
+            //    .HasForeignKey<Exercise>(ev => ev.ExercisePlannedId);
+
+            //modelBuilder.Entity<Exercise>()
+            //    .HasOne(e => e.ExerciseDone)
+            //    .WithOne()
+            //    .HasForeignKey<Exercise>(ev => ev.ExerciseDoneId);
         }
     }
 }
