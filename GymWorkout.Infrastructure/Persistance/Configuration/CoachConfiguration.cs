@@ -8,10 +8,10 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<Coach> builder)
         {
-            builder.ToTable(nameof(Coach));
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name).HasMaxLength(150).IsRequired();
-            builder.Property(c => c.Surname).HasMaxLength(150).IsRequired();
+            //builder.ToTable(nameof(Coach));
+            //builder.HasKey(c => c.Id);
+            builder.Property(c => c.Name);
+            builder.Property(c => c.Surname);
 
             builder.HasMany(c => c.Participants)
                     .WithOne(p => p.Coach)

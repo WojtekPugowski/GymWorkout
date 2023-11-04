@@ -8,8 +8,6 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<TrainingDay> builder)
         {
-            builder.ToTable(nameof(TrainingDay));
-            builder.HasKey(t => t.Id);
             builder.Property(t => t.DateAndTime);
 
             builder.HasMany(t => t.Exercises)
