@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GymWorkout.Domain.Entities
 {
-    public class ExercisesVariables : DomainEntity //dodać DB (ewentualnie można zapisać do JSON)
+    public class ExerciseVariables : DomainEntity //dodać DB (ewentualnie można zapisać do JSON)
     {
         public int NumberOfSeries { get; set; }
         public int NumberOfRepetitions { get; set; }

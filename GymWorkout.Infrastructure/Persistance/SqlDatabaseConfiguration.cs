@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GymWorkout.Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GymWorkout.Infrastructure.Persistance
 {
     public static class SqlDatabaseConfiguration
     {
-
-        public static void AddSqlDatabase(this string connectionString)
+        public static void AddSqlDatabase(this IServiceCollection services, string connectionString)
         {
-            return null; 
+            services.AddDbContext<IApplicationDbContext, MainDbContext>(options =>
+                options.UseSqlServer(connectionString));
         }
+
     }
 }

@@ -9,8 +9,9 @@ namespace GymWorkout.Application.Interfaces
         public DbSet<Participant> Participats { get; set; }
         public DbSet<TrainingDay> TrainingDays { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<ExerciseVariables> ExerciseVariables { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-
-
+        //void TrainingDays();
     }
 }
