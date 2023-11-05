@@ -10,8 +10,8 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
         {
             //builder.ToTable(nameof(Coach));
             //builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name);
-            builder.Property(c => c.Surname);
+            //builder.Property(c => c.Name);
+            //builder.Property(c => c.Surname);
 
             builder.HasMany(c => c.Participants)
                     .WithOne(p => p.Coach)
