@@ -1,9 +1,7 @@
-using GymWorkout.Application.Interfaces;
 using GymWorkout.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 const string APP_NAME = "GymWorkout";
