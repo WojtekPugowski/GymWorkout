@@ -8,9 +8,9 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<ExerciseVariables> builder)
         {
-            builder.Property(b => b.NumberOfSeries);
-            builder.Property(b => b.WeightLifted);
-            builder.Property(b => b.Duration);
+            //builder.Property(b => b.NumberOfSeries);
+            //builder.Property(b => b.WeightLifted);
+            //builder.Property(b => b.Duration);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace GymWorkout.Infrastructure.Persistance.Configuration
     {
         public void Configure(EntityTypeBuilder<Exercise> builder)
         {
-            builder.Property(b => b.Title);
+            //builder.Property(b => b.Title);
             builder.HasOne(b => b.ExercisePlanned)
                     .WithOne()
                     .HasForeignKey<Exercise>(ev => ev.ExercisePlannedId)

@@ -2,7 +2,7 @@
 
 namespace GymWorkout.Domain.Entities
 {
-    public abstract class Exercise : DomainEntity
+    public class Exercise : DomainEntity
     {
         public string Title { get; set; } = string.Empty;
 

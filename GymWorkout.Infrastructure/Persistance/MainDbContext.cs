@@ -9,8 +9,8 @@ namespace GymWorkout.Infrastructure.Persistance
     public class MainDbContext : DbContext, IApplicationDbContext
     {
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options) { }
-        public DbSet<Coach> Coachs { get; set; }
-        public DbSet<Participant> Participats { get; set; }
+        public DbSet<Coach> Coaches { get; set; }
+        public DbSet<Participant> Participants { get; set; }
         public DbSet<TrainingDay> TrainingDays { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ExerciseVariables> ExerciseVariables { get; set; }
