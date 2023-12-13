@@ -14,4 +14,9 @@
     <ProjectReference Include="..\GymWorkout.Domain\GymWorkout.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

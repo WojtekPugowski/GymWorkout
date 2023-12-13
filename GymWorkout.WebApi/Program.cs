@@ -1,7 +1,6 @@
 using GymWorkout.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 const string APP_NAME = "GymWorkout";
@@ -24,6 +23,11 @@ builder.Logging.AddSerilog(logger);
 builder.Services.AddControllers();
 
 builder.Services.AddSqlDatabase(builder.Configuration.GetConnectionString("GymWorkoutConnectionString")!);
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

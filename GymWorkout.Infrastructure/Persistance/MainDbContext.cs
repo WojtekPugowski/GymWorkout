@@ -2,7 +2,6 @@
 using GymWorkout.Domain.Entities;
 using GymWorkout.Infrastructure.Persistance.Configuration;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace GymWorkout.Infrastructure.Persistance
 {
@@ -23,7 +22,7 @@ namespace GymWorkout.Infrastructure.Persistance
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        { 
+        {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CoachConfiguration).Assembly);
 
             //modelBuilder.ApplyConfiguration(new CoachConfiguration());

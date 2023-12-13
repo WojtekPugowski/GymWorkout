@@ -1,7 +1,5 @@
 ﻿using GymWorkout.Application.Interfaces;
-using GymWorkout.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GymWorkout.WebApi.Controllers
 {
@@ -10,7 +8,6 @@ namespace GymWorkout.WebApi.Controllers
     public class TestController : ControllerBase
     {
         private readonly IApplicationDbContext _applicationDbContext;
-
         public TestController(IApplicationDbContext applicationDbContext)
         {
             _applicationDbContext = applicationDbContext;
